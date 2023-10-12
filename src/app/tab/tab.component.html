@@ -1,0 +1,43 @@
+<div class="flex flex-col">
+  <ul class="flex">
+    <li
+      *ngFor="let tab of tabs; index as i"
+      (click)="selectTab(i)"
+      [ngClass]="{ 'bg-blue-300': selectedTab === i }"
+      class="p-3 border rounded-t-lg hover:cursor-pointer hover:bg-blue-500 hover:text-white"
+    >
+      {{ tab.label }}
+    </li>
+
+    <!-- 
+      
+      <li
+      (click)="selectTab(1)"
+      [ngClass]="{ 'bg-blue-300': selectedTab === 1 }"
+      class="p-3 border rounded-t-lg hover:cursor-pointer hover:bg-blue-500 hover:text-white"
+    >
+      Tab 1
+    </li>
+    <li
+      (click)="selectTab(2)"
+      [ngClass]="{ 'bg-blue-500': selectedTab === 2 }"
+      class="p-3 border rounded-t-lg hover:cursor-pointer hover:bg-blue-500 hover:text-white"
+    >
+      Tab 2
+    </li>-->
+  </ul>
+  <div class="p-4 border border-gray-200 rounded-b-lg">
+    <ng-container *ngFor="let tab of tabs; let i = index">
+      <div *ngIf="selectedTab == i">
+        <p>{{ tab.content }}</p>
+      </div>
+    </ng-container>
+    <!-- 
+    <div *ngIf="selectedTab == 1">
+      <p>This is the content of Tab 1.</p>
+    </div>
+    <div *ngIf="selectedTab == 2">
+      <p>This is the content of Tab 2.</p>
+    </div> -->
+  </div>
+</div>
